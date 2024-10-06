@@ -1,7 +1,7 @@
 import "./Cushion.css";
 import React, { useState, useEffect } from 'react';
 import { ref, getDownloadURL, listAll } from "firebase/storage";
-import { getFirestore, collection, getDocs } from "firebase/firestore"; 
+import { collection, getDocs } from "firebase/firestore"; 
 import { storage, db} from '../../firebase';
 
 const Cushion = () => {
@@ -87,8 +87,6 @@ const Cushion = () => {
                 <>
                     {cushions.map((subBrandData, index) => (
                         <div key={index} className="folder-section">
-                            <h4>{subBrandData.brand}</h4>
-
                             <div className="cushion-content-container">
                                 {subBrandData.mainImage && (
                                 <img

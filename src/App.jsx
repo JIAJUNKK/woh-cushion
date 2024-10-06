@@ -15,7 +15,7 @@ function App() {
         <Hero/>
       </section>
 
-      <section id="Perodua">
+      <section>
         <Cushion/>
       </section>
     </div>
