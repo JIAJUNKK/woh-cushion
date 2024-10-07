@@ -20,7 +20,6 @@ function App() {
       </section>
 
       <section>
-        <h1>{selectedBrand}</h1>
         <Cushion selectedBrand={selectedBrand}/>
       </section>
 

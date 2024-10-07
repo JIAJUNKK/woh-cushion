@@ -8,9 +8,9 @@ const Footer = () => {
         <p>15-kawasan Perindustrian, 27000, Jerantut, Pahang</p>
 
         <div className="contact-image-container">
-          <img src="/whatsapp.svg"></img>  
+          <img src="/whatsapp.svg" alt = "whatsapp"></img>  
           <div className="vertical-line">&#8203;</div>
-          <img src="/phone.svg"></img>
+          <img src="/phone.svg" alt = "phone"></img>
           <p>0199881901</p>
 
         </div>
