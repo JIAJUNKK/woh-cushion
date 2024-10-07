@@ -1,4 +1,5 @@
 import "./Cushion.scss";
+import SkeletonLoader from "./SkeletonLoader";
 import React, { useState, useEffect } from 'react';
 import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { collection, getDocs } from "firebase/firestore"; 
@@ -84,7 +85,11 @@ const Cushion = ({selectedBrand}) => {
     return (
         <div className="cushion-container">
             {loading ? (
-                <div className="loading-indicator">Loading...</div>
+                <div>
+                    <SkeletonLoader/>
+                    <SkeletonLoader/>
+                    <SkeletonLoader/>
+                </div>
             ) : (
                 <>
                     <h1 className="brand-header">{selectedBrand}</h1>
