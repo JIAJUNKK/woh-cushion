@@ -4,7 +4,7 @@ import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { collection, getDocs } from "firebase/firestore"; 
 import { storage, db} from '../../firebase';
 
-const Cushion = () => {
+const Cushion = ({selectedBrand}) => {
     const [loading, setLoading] = useState(true);
     const [cushions, setCushions] = useState([]); 
     const [selectedImages, setSelectedImages] = useState({}); 
@@ -31,8 +31,6 @@ const Cushion = () => {
                             id: doc.id,
                             ...doc.data(), 
                         }));
-                        console.log("this is subBrandDetails: ", subBrandDetails);
-
                         return {
                             brand: brandFolderRef.name,
                             subBrand: subBrandFolderRef.name,
@@ -65,27 +63,29 @@ const Cushion = () => {
     }, []);
 
     const handleThumbnailClick = (subBrandIndex, newMainImage, imgIndex) => {
-        // Update the main image for the selected subBrand
         setCushions(prevCushions => {
             const updatedCushions = [...prevCushions];
             updatedCushions[subBrandIndex].mainImage = newMainImage;
             return updatedCushions;
         });
         
-        // Set the selected image for this sub-brand
         setSelectedImages(prevSelected => ({
             ...prevSelected,
-            [subBrandIndex]: imgIndex // Store the index of the selected image
+            [subBrandIndex]: imgIndex 
         }));
     };
 
+    const filteredCushions = selectedBrand === "All" ? cushions : cushions.filter((cushion) => cushion.brand === selectedBrand);
+
+    console.log("selected brand: ", selectedBrand);
+    console.log("filtered cushions: ", filteredCushions);
     return (
         <div className="cushion-container">
             {loading ? (
                 <div className="loading-indicator">Loading...</div>
             ) : (
                 <>
-                    {cushions.map((subBrandData, index) => (
+                    {filteredCushions.map((subBrandData, index) => (
                         <div key={index} className="folder-section">
                             <div className="cushion-content-container">
                                 {subBrandData.mainImage && (

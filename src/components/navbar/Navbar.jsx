@@ -2,11 +2,11 @@ import "./navbar.scss";
 import Sidebar from "../sidebar/Sidebar";
 import { motion } from "framer-motion";
 
-const Navbar = () => {
+const Navbar = ({setSelectedBrand}) => {
   return (
     <div className="navbar">
 
-      <Sidebar/>
+      <Sidebar setSelectedBrand={setSelectedBrand}/>
 
       <div className="wrapper">
         <motion.span

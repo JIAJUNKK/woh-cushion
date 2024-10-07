@@ -24,22 +24,22 @@ const itemVariants = {
   },
 };
 
-const Links = ({closeSidebar}) => {
+const Links = ({closeSidebar, setSelectedBrand}) => {
   const items = ["Home", "All", "Honda", "Nissan", "Proton", "Perodua", "Suzuki", "Toyota"];
-  const handleClick = () =>{
+  const handleClick = (item) =>{
     closeSidebar();
+    setSelectedBrand(item);
   }
 
   return (
     <motion.div className="links" variants={variants}>
       {items.map((item) => (
         <motion.a
-          href={`#${item}`}
           key={item}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={handleClick}
+          onClick={() => handleClick(item)}
         >
           {item}
         </motion.a>
