@@ -25,7 +25,7 @@ const itemVariants = {
 };
 
 const Links = ({closeSidebar, setSelectedBrand}) => {
-  const items = ["Home", "All", "Honda", "Nissan", "Proton", "Perodua", "Suzuki", "Toyota"];
+  const items = ["All", "Honda", "Nissan", "Proton", "Perodua", "Suzuki", "Toyota"];
   const handleClick = (item) =>{
     closeSidebar();
     setSelectedBrand(item);

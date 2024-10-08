@@ -5,13 +5,13 @@ import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { collection, getDocs } from "firebase/firestore"; 
 import { storage, db} from '../../firebase';
 
-const Cushion = ({selectedBrand}) => {
-    const [loading, setLoading] = useState(true);
+const Cushion = ({selectedBrand, setLoading, loading}) => {
     const [cushions, setCushions] = useState([]); 
     const [selectedImages, setSelectedImages] = useState({}); 
     const folderPath = 'cushions/';
 
     useEffect(() => {
+        setLoading(true);
         const fetchImages = async () => {
             try {
                 const cushionsRef = ref(storage, folderPath);
@@ -54,14 +54,14 @@ const Cushion = ({selectedBrand}) => {
 
                 setSelectedImages(initialSelectedImages); 
                 setCushions(allSubBrandsImages.flat());  
-                setLoading(false);
             } catch (error) {
                 console.error("Error fetching images:", error);
+            } finally{
                 setLoading(false);
             }
         };
         fetchImages();
-    }, []);
+    }, [setLoading]);
 
     // Handle thumbnail click
     const handleThumbnailClick = (originalIndex, newMainImage, imgIndex) => {

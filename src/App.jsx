@@ -7,6 +7,7 @@ import Footer from './components/footer/Footer';
 
 function App() {
   const [selectedBrand, setSelectedBrand] = useState('All'); 
+  const [loading, setLoading] = useState(true);
 
   return (
     <div>
@@ -16,11 +17,11 @@ function App() {
       </section>
 
       <section>
-        <Hero/>
+        <Hero setSelectedBrand={setSelectedBrand} loading={loading}/>
       </section>
 
       <section>
-        <Cushion selectedBrand={selectedBrand}/>
+        <Cushion selectedBrand={selectedBrand} setLoading={setLoading} loading={loading}/>
       </section>
 
       <Footer/>
