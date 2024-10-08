@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import SkeletonLoader from "./SkeletonLoader";
 import './hero.scss';
-import { b } from "framer-motion/client";
 
 const Hero = ({setSelectedBrand, loading}) => {
   const [selectedBox, setSelectedBox] = useState(null); 
@@ -47,8 +46,8 @@ const Hero = ({setSelectedBrand, loading}) => {
                   key={index}
                   className={`brandRectangle ${selectedBox === brand ? "selected" : ""}`} 
                   onClick={() => handleClick(brand)}
-                  whileHover={{ scale: 1.1 }} 
-                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileHover={{ scale: 1.05, backgroundColor: "white" }} 
+                  initial={{ scale: 0.8, opacity: 0, backgroundColor: "#e0e0e0" }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.2 }}
                 >
