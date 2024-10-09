@@ -63,7 +63,6 @@ const Cushion = ({selectedBrand, setLoading, loading}) => {
         fetchImages();
     }, [setLoading]);
 
-    // Handle thumbnail click
     const handleThumbnailClick = (originalIndex, newMainImage, imgIndex) => {
         setCushions(prevCushions => {
             const updatedCushions = [...prevCushions];
@@ -77,7 +76,6 @@ const Cushion = ({selectedBrand, setLoading, loading}) => {
         }));
     };
 
-    // Filter cushions based on the selected brand
     const filteredCushions = selectedBrand === "All" 
         ? cushions 
         : cushions.filter((cushion) => cushion.brand === selectedBrand);
@@ -96,7 +94,7 @@ const Cushion = ({selectedBrand, setLoading, loading}) => {
                     {filteredCushions.map((subBrandData, index) => {
                         const originalIndex = cushions.findIndex(cushion => 
                             cushion.brand === subBrandData.brand && cushion.subBrand === subBrandData.subBrand
-                        ); // Map filtered index to original index
+                        ); 
 
                         return (
                             <div key={index} className="folder-section">
@@ -108,24 +106,23 @@ const Cushion = ({selectedBrand, setLoading, loading}) => {
                                             className="main-image"
                                         />
                                     )}
-
-                                    <div className="cushion-details-container">
-                                        <h3>{subBrandData.details.name}</h3>
-                                        <p>{subBrandData.details.description}</p>
-                                        <h5>RM{subBrandData.details.price}</h5>
+                                    <div className="detail-images">
+                                        {subBrandData.detailImages.slice().reverse().map((image, imgIndex) => (
+                                            <img
+                                                key={imgIndex}
+                                                src={image}
+                                                alt={`Detail ${imgIndex}`}
+                                                className={`thumbnail ${selectedImages[originalIndex] === subBrandData.detailImages.length - 1 - imgIndex ? 'selected' : ''}`}
+                                                onClick={() => handleThumbnailClick(originalIndex, image, subBrandData.detailImages.length - 1 - imgIndex)}
+                                            />
+                                        ))}
                                     </div>
                                 </div>
 
-                                <div className="detail-images">
-                                    {subBrandData.detailImages.slice().reverse().map((image, imgIndex) => (
-                                        <img
-                                            key={imgIndex}
-                                            src={image}
-                                            alt={`Detail ${imgIndex}`}
-                                            className={`thumbnail ${selectedImages[originalIndex] === subBrandData.detailImages.length - 1 - imgIndex ? 'selected' : ''}`}
-                                            onClick={() => handleThumbnailClick(originalIndex, image, subBrandData.detailImages.length - 1 - imgIndex)}
-                                        />
-                                    ))}
+                                <div className="cushion-details-container">
+                                    <h3>{subBrandData.details.name}</h3>
+                                    <p>{subBrandData.details.description}</p>
+                                    <h5>RM{subBrandData.details.price}</h5>
                                 </div>
                             </div>
                         );

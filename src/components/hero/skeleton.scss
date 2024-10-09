@@ -1,19 +1,19 @@
+@import '../../App.scss';
 .skeleton-brand-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-  }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
   
   .skeleton-brand-rectangle {
     width: 150px;
     height: 100px;
     padding: 10px;
-
     background: #ddd;
     border-radius: 10px;
     animation: pulse 1.5s infinite ease-in-out;
   }
-  
+}
   @keyframes pulse {
     0% {
       background-color: #e0e0e0;

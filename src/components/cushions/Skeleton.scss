@@ -6,63 +6,82 @@
         background-color: #efebe9;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 600px;
 
-  
+        @include mobile{
+          height: auto;
+          width: 330px;
+          align-self: center;
+          align-items: center;
+        }
+        
       .cushion-content-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
         padding: 1vw;
+        width: 450px;
+        @include mobile{
+          align-items: center;
+        }
         
         .loading-placeholder {
           background-color: #ddd;
           border-radius: 10px;
           animation: pulse 1.5s infinite;
         }
-  
         .main-image {
-          width: 45%;
-          height: 300px;
+          width: 100%;
+          height: 400px;
+          @include mobile{
+            height: 330px;
+            width: 70%;
+          }
         }
-  
-        .cushion-details-container {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          padding: 0 2vw 0 2vw;
-          gap: 10vh;
-          align-self: center;
-          
-          .title-placeholder {
-            width: 50%;
-            height: 35px;
+        .detail-images {
+          gap: 1px;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(80px, 1fr)); 
+          @include mobile{
+            width: 70%;
           }
-  
-          .description-placeholder {
-            width: 100%;
-            height: 80px;
-          }
-  
-          .price-placeholder {
-            width: 30%;
-            height: 25px;
+          .thumbnail-placeholder {
+              aspect-ratio: 1/1;
+              border-radius: 5px;
+              background-color: #ddd;
+              animation: pulse 1.5s infinite;
+              width: 100px;
           }
         }
       }
-  
-      .detail-images {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(80px, 1fr)); /* Ensure a minimum width */
-        gap: 10px;
-        width: 45%; 
 
-        .thumbnail-placeholder {
-            aspect-ratio: 1/1;
-            border-radius: 5px;
-            background-color: #ddd;
-            animation: pulse 1.5s infinite;
+      .cushion-details-container {
+        justify-content: space-between;
+        padding: 0 2vw 0 2vw;
+
+        .loading-placeholder {
+          background-color: #ddd;
+          border-radius: 10px;
+          animation: pulse 1.5s infinite;
         }
-    }
+        
+        .title-placeholder {
+          width: 50%;
+          height: 35px;
+        }
+
+        .description-placeholder {
+          width: 100%;
+          height: 80px;
+        }
+
+        .price-placeholder {
+          width: 30%;
+          height: 25px;
+        }
+      }
     }
   
     @keyframes pulse {

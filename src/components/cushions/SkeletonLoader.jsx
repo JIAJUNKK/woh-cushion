@@ -7,20 +7,22 @@ const SkeletonLoader = () => {
       <div className="folder-section">
         
         <div className="cushion-content-container">
-          <div className="main-image loading-placeholder"></div>
-          
-          <div className="cushion-details-container">
-            <div className="title-placeholder loading-placeholder"></div>
-            <div className="description-placeholder loading-placeholder"></div>
-            <div className="price-placeholder loading-placeholder"></div>
+          <div className="main-image loading-placeholder">
+          </div>
+
+          <div className="detail-images">
+            <div className="thumbnail-placeholder loading-placeholder"></div>
+            <div className="thumbnail-placeholder loading-placeholder"></div>
+            <div className="thumbnail-placeholder loading-placeholder"></div>
           </div>
         </div>
 
-        <div className="detail-images">
-          <div className="thumbnail-placeholder loading-placeholder"></div>
-          <div className="thumbnail-placeholder loading-placeholder"></div>
-          <div className="thumbnail-placeholder loading-placeholder"></div>
+        <div className="cushion-details-container">
+            <div className="title-placeholder loading-placeholder"></div>
+            <div className="description-placeholder loading-placeholder"></div>
+            <div className="price-placeholder loading-placeholder"></div>
         </div>
+
       </div>
     </div>
   );
