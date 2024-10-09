@@ -120,9 +120,17 @@ const Cushion = ({selectedBrand, setLoading, loading}) => {
                                 </div>
 
                                 <div className="cushion-details-container">
-                                    <h3>{subBrandData.details.name}</h3>
-                                    <p>{subBrandData.details.description}</p>
-                                    <h5>RM{subBrandData.details.price}</h5>
+                                    <div className="cushion-details-header">
+                                        <h3>{subBrandData.details.name}</h3>
+                                        <p>{subBrandData.details.description}</p>
+                                    </div>
+
+                                    <div className="cushion-details-description">
+                                    </div>
+
+                                    <div className="cushion-details-price">
+                                        <h5>RM{subBrandData.details.price}</h5>
+                                    </div>
                                 </div>
                             </div>
                         );
