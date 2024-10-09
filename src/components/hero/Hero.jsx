@@ -5,7 +5,7 @@ import './hero.scss';
 
 const Hero = ({setSelectedBrand, loading}) => {
   const [selectedBox, setSelectedBox] = useState(null); 
-  const brands = ["Honda", "Nissan", "Proton", "Perodua", "Toyota", "Suzuki"];
+  const brands = ["Honda", "Nissan", "Proton", "Perodua", "Toyota", "Suzuki",];
 
   const handleClick = (brand) => {
     setSelectedBox(brand);
