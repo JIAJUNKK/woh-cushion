@@ -52,6 +52,10 @@
             gap: 10px;
             width: 100%;
           }
+          @include mobile{
+            gap: 2px;
+            width: 100%;
+          }
           .thumbnail {
             width: 100%;
             height: auto;
